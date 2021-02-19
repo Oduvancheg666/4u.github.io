@@ -111,6 +111,8 @@ function Score(){
    alert(answerText);
    yourAns = [];
    score = 0;
+   var bingo = document.getElementById('bingo');
+   bingo.style.display="block";
    clearForm("quiz");
 }
 function clearForm(name) {
@@ -146,6 +148,9 @@ for(var q=0; q<questions.length; ++q) {
 <input type="button" class="button" onClick="Score()" value="Проверить результаты" />
 
 </form>
+<div id="for-you" class="text" style="display: none">Поздравляю! Твой приз - любой курс в любой онлайн школе! Выбрать нужно к середине апреля! <br> Люблю тебя! :*</div>
+<button id="bingo" style="display: none" onclick="document.getElementById('for-you').style.display='block'">ПОЛУЧИТЬ ПРИЗ</button>
+
 
 
 
