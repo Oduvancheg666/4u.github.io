@@ -12,9 +12,10 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
+	background-color: #a6dc6b;
 }
 
-div {
+.text {
 	margin: 20px;
 }
 .img {
@@ -37,3 +38,4 @@ div {
 	margin-left: 50%;
 	margin-bottom: 40px;
 }
+
