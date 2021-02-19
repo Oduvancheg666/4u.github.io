@@ -1,164 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>4u</title>
-	<meta charset="utf-8">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@600&family=Reggae+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="text">Изи тест айсикью ловушка. Нельзя гуглить или повторно проходить тест! Но можно спрашивать у друзей и знакомых! В общем там 8 вопросов и в целом это не сложно, ты справишься! После прохождения теста нужно произнести в моем присутствии заклинание "А ГДЕ?"</div>
-<div class="img">
-<img id="go-out" src="img/1.png"> </div>
+html body {
+	height: 100%;
+	width: 100%; 
 
-<script type="text/javascript">
-
-var questions=[
-{
-	text: "Чемпион Европы по футболу 1992(Это кстати год моего рождения):",
-	answers: ["Чехия",
-			  "СССР",
-			  "Бразилия",
-			  "Дания",],
-	correctAnswer: 3 // нумерация ответов с нуля!
-},
-{
-	text: "Олимпийский чемпион по фигурному катанию 2002 (солт лейк сити). Мужское одиночное катание. (я, межпрочим, один раз в жизни смотрел фигурное катание) ",
-	answers: ["Евгений Плющенко",
-			  "Алексей Ягудин",
-			  "Антуан Гризман",
-			  "Ингеборга Дапкунайте",],
-		correctAnswer: 1
-},
-{
-	text: "Кто забил гол в золотом матче 2002 локо - цска(забили всего 1 гол)",
-	answers: ["Лекхетто",
-			  "Лоськов",
-			  "Игнашевич",
-			  "Алдонин",],
-		correctAnswer: 1
-},
-{
-	text: "Самая популярная карта в кококонтр-страйк",
-	answers: ["Черная карта - будешь счастливой",
-			  "Тинькофф",
-			  "Туз пики",
-			  "Dust 2",],
-		correctAnswer: 3
-},
-{
-	text: "Третий фильм Тарантино",
-	answers: ["Джеки Браун",
-			  "4 комнаты",
-			  "Горько 3",
-			  "Убить Билла 2",],
-		correctAnswer: 0
-},
-{
-	text: "Как называют врачей, которые лечат полицейских?",
-	answers: ["Мусоролог",
-			  "Хиллкоп",
-			  "Никак",
-			  "Ветеринар",],
-		correctAnswer: 0
-},
-{
-	text: "Год крещения Армении? (это первое христианское государство)",
-	answers: ["300год до рождества Христова",
-			  "300год",
-			  "301год",
-			  "Они мусульмане!",],
-		correctAnswer: 2
-},
-
-{
-	text: "Клуб в Воронеже, в котором в 2013г выступал Элизиум, Эмик, Нюша, Дёня и Лиф присутствовали.",
-
-	answers: ["12 тонн",
-			  "Тарантул",
-			  "Сто ручьев",
-			  "Клуб 12",],
-		correctAnswer: 1
-},
-
-
-
-];
-
-var yourAns = new Array;
-var score = 0;
-
-function Engine(question, answer) {yourAns[question]=answer;}
-
-function Score(){
-   var answerText = "Результаты:\n";
-   for(var i = 0; i < yourAns.length; ++i){
-	var num = i+1;
-	answerText=answerText+"\n    Вопрос №"+ num +"";
-	if(yourAns[i]!=questions[i].correctAnswer){
-	    answerText=answerText+"\n    Правильный ответ: " +
-		questions[i].answers[questions[i].correctAnswer] + "\n";
-	  }
-        else{
-	    answerText=answerText+": Верно! \n";
-	    ++score;
-	    }
-       }
-
-   answerText=answerText+"\nВсего правильных ответов: "+score+"\n";
-
-   alert(answerText);
-   yourAns = [];
-   score = 0;
-   var bingo = document.getElementById('bingo');
-   bingo.style.display="block";
-   clearForm("quiz");
 }
-function clearForm(name) {
-   var f = document.forms[name];
-   for(var i = 0; i < f.elements.length; ++i) {
-	if(f.elements[i].checked)
-		f.elements[i].checked = false;
+
+
+
+body {
+	font-size: 32px;
+	font-family: 'Reggae One', cursive;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background-color: #a6dc6b;
 }
+
+.text {
+	margin: 20px;
 }
-</script>
-
-<style>
-span.quest {font-weight: bold;}
-</style>
-
-
-
-<form name="quiz">
-<ol>
-<script>
-for(var q=0; q<questions.length; ++q) {
-   var question = questions[q];
-   var idx = 1 + q;
-
-   document.writeln('<li><span class="quest">' + question.text + '</span><br/>');
-   for(var i in question.answers) {
-	document.writeln('<input type=radio class="radio" name="q' + idx + '" value="' + i +
-	'" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+.img {
+	text-align: center;
+	margin: 0;
 }
+
+.radio{
+	width: 40px;
+	height: 40px;
 }
-</script>
-</ol>
-<input type="button" class="button" onClick="Score()" value="Проверить результаты" />
-
-</form>
-<div id="for-you" class="text" style="display: none">Поздравляю! Твой приз - любой курс в любой онлайн школе! Выбрать нужно к середине апреля! <br> Люблю тебя! :*</div>
-<button id="bingo" style="display: none" onclick="document.getElementById('for-you').style.display='block'">ПОЛУЧИТЬ ПРИЗ</button>
 
 
+.button {
+	width: 400px;
+	height: 120px;
+	display: grid;
+	left: 45%;
+	font-size: 30px;
+	margin-left: 50%;
+	margin-bottom: 40px;
+}
 
-
-
-
-<!-- 	<footer class="footer">
-		<a href="https://skillbox.ru/">	<img src="img/skillbox.png"></a>
-
-	</footer> -->
-</body>
-</html>
